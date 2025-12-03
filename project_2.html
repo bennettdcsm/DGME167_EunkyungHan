@@ -10,6 +10,35 @@
 </head>
 
 <body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxDesc = document.getElementById("lightbox-desc");
+      const closeBtn = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".expandable-image").forEach(img => {
+        img.addEventListener("click", () => {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxTitle.textContent = img.dataset.title;       // ← title
+          lightboxDesc.textContent = img.dataset.description;  // ← description
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    });
+  </script>
   <!-- Header Section -->
   <header>
     <div class="logo"> <img src="images/logo_simple.png" alt="ehanbrandlogo" /> </div>
@@ -33,60 +62,58 @@
         <section class="artwork-grid">
           <div class="artwork-item">
             <div class="artwork-image-frame">
-              <img src="images/ninlives.png" alt="The image of brochure" />
+              <img src="images/ninlives.png" alt="The brochure front and back page image" class="expandable-image"
+                data-description="By adding sections of photo reviews and social proof, the outdated ticketing website was updated for meeting the needs of the Millennial users"
+                data-title="Alcatraz Island Tickets Website Case Study" />
             </div>
-            <h3>Nine Lives Clinic Brochure</h3>
-            <p class="artwork-description"><strong>Client &middot;</strong> Nine Lives Foundation (Redwood City) <br>
-              <strong>Purpose &middot;</strong> To increase the appointment rate <br> <strong>Audience &middot;</strong>
-              People in the Bay Area
-            </p>
+            <h2>Alcatraz Island Tickets Website</h2>
+
           </div>
           <div class="artwork-item">
-            <div class="artwork-image-frame"> <img src="images/paris.jpg" alt="The image of santorini" />
+            <div class="artwork-image-frame"> <img src="images/MarianBantjes.png" alt="The magazine spread image"
+                class="expandable-image"
+                data-description="The legibility of a magazine spread was increased when similar images were used."
+                data-title="The Layout for a Magazine" />
             </div>
-            <h3>Paris Poster</h3>
-            <p class="artwork-description"><strong>Client &middot; </strong> Ministry of Tourism in France <br>
-              <strong>Purpose &middot; </strong> To tell the French Revolution philosophy<br><strong>Goal
-                &middot;</strong>Delivering meanings of "Three Colors"
-            </p>
+            <h2>Ky Moma Website</h2>
+
           </div>
           <div class="artwork-item">
-            <div class="artwork-image-frame"> <img src="images/MarianBantjes.png" alt="The image of santorini" />
+            <div class="artwork-image-frame"> <img src="images/cdjacket.jpg" alt="The CD album cover image"
+                class="expandable-image"
+                data-description="The positive vibe about Lo-Fi yoga music was visulized in colorscheme as well as typography."
+                data-title="Music Album Jacket Layout" />
             </div>
-            <h3>Marian Bantjes Magazine Spread</h3>
-            <p class="artwork-description"><strong>Client &middot; </strong> Art and Culture Magazine in UK <br>
-              <strong>Purpose &middot;</strong> To deliver the experimental mind of
-              Marian<br><strong>Audience&middot;</strong> Worldwide visual artists and designers
-            </p>
-          </div>
-          <div class="artwork-item">
-            <div class="artwork-image-frame"> <img src="images/dropcap.png"
-                alt="The poster of paris depicting the Eiffle Tower" />
-            </div>
-            <h3>Drop Cap Book Cover</h3>
-            <p class="artwork-description"><strong>Client</strong> Amazon's Kindle <br> <strong>Purpose </strong> To
-              increase conversion rate of subscribers <br><strong>Audience</strong> Those who like classical novels </p>
+            <h2>CorepowerYoga Mobile App</h2>
           </div>
           <div class="artwork-item">
             <div class="artwork-image-frame">
-              <img src="images/branding/cdjacket.jpg" alt="The CD album jacket" />
+              <img src="images/dvd.jpg" alt="A film Chef image" class="expandable-image"
+                data-description="The filem Chef DVD interface"
+                data-title="Targeting a high end market, scenes were reinterpreted under the vintage style UI design" />
             </div>
-            <h3>Music Album Jacket</h3>
-            <p class="artwork-description"><strong>Client &middot;</strong> DJ Sol Rising <br>
-              <strong>Purpose &middot;</strong> To deliver peaceful mood of Lo-Fi musics <br> <strong>Audience
-                &middot;</strong>
-              Yoga people
-            </p>
+            <h2>Glass Icons</h2>
           </div>
-          <br>
-        </section>
-        <div class="button-choice">
-          <a href="project_1.html"><button>Go Back</button></a>
-          <a href="index.html"><button>Home</button></a>
-        </div>
+      </div>
+      <br>
+      </section>
+      <div class="button-choice">
+        <a href="project_1.html"><button>Go Back</button></a>
+        <a href="index.html"><button>Home</button></a>
       </div>
     </div>
+    </div>
   </main>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <h2 id="lightbox-title"></h2>
+      <img id="lightbox-img" src="" alt="The enlarged image" />
+      <p id="lightbox-desc"></p>
+      <span id="lightbox-close">&times;</span>
+    </div>
+  </div>
 
   <!-- Footer Section -->
   <footer>

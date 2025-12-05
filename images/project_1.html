@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects Page</title>
+  <link rel="icon" href="image/favi.png" type="logo image" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxDesc = document.getElementById("lightbox-desc");
+      const closeBtn = document.getElementById("lightbox-close");
+
+      document.querySelectorAll(".expandable-image").forEach(img => {
+        img.addEventListener("click", () => {
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightboxTitle.textContent = img.dataset.title;       // ← title
+          lightboxDesc.textContent = img.dataset.description;  // ← description
+        });
+      });
+
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+  <!-- Header Section -->
+  <header>
+    <div class="logo"> <img src="image/logo_simple.png" alt="ehanbrandlogo" /> </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project_1.html">Project</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container-project-wrapper">
+      <div class="container-project">
+        <section class="projectpagetitle">
+          <h1>UXUI</h1>
+        </section>
+        <section class="artwork-grid">
+          <div class="artwork-item">
+            <div class="artwork-image-frame">
+              <img src="image/alcatraz.png" alt="The WebApp design of AlcatrazIslandTickets.com"
+                data-description="The outdated ticketing website was updated by adding sections of photo reviews and social proof targeting the Millennial users in the Bay Area"
+                data-title="Alcatraz Island Tickets Website Case Study" />
+            </div>
+            <h2>Alcatraz Island Tickets Website</h2>
+
+          </div>
+          <div class="artwork-item">
+            <div class="artwork-image-frame"> <img src="image/kymoma.png" alt="The WebApp design of KyMoma.com"
+                data-description="The public art museum website was designed based on responsiveness and accessibility"
+                data-title="Ky Moma Website Case Study" />
+            </div>
+            <h2>Ky Moma Website</h2>
+
+          </div>
+          <div class="artwork-item">
+            <div class="artwork-image-frame"> <img src="image/yoga.png" alt="The WebApp design of CorepowerYoga.com"
+                data-description="The mobile app of CorepowerYoga.com was upgraded to a tutorial platform.  
+                data-title=" CorepowerYoga App" />
+            </div>
+            <h2>CorepowerYoga Mobile App</h2>
+          </div>
+          <div class="artwork-item">
+            <div class="artwork-image-frame">
+              <img src="image/visionpro.png" alt="The self taught Project"
+                data-description="Glass looking icons were designed to test its validation for customization enthusiasts"
+                data-title="Glass Icons for Apple's VisionPro Interface" />
+            </div>
+            <h2>Glass Icons</h2>
+          </div>
+      </div>
+      <div class="button-choice">
+        <a href="index.html"><button>Home</button></a>
+        <a href="project_2.html"><button>View More</button></a>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <h2 id="lightbox-title"></h2>
+      <img id="lightbox-img" src="" alt="The enlarged image" />
+      <p id="lightbox-desc"></p>
+      <span id="lightbox-close">&times;</span>
+    </div>
+  </div>
+
+
+  <!-- Footer Section -->
+  <footer>
+    <div class>&copy; EHAN 2025</div>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/ehandesignstudio"><img src="image/icon_insta.png" alt="Instagram" /></a>
+      <a href="http://linkedin.com/in/eunkyung-han-60b575226"><img src="image/icon_linkedin.png" alt="LinkedIn" /></a>
+    </div>
+  </footer>
+</body>
+
+</html>
